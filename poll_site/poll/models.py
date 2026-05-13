@@ -15,4 +15,4 @@ class PersonalInfo(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True, null=True)
 
     def __str__(self) -> str:
-        return super().__str__()
+        return self.name
