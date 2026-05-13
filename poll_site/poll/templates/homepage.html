@@ -15,8 +15,48 @@
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
+        input {
+            background-color: black;
+            border: white solid 2px;
+            color: white;
+        }
+
+        button {
+            align-self: center;
+            width: 100px;
+            background-color: black;
+            border: white solid 2px;
+            border-radius: 5px;
+            color: white;
+        }
+
         #PollBox {
-          background: white, ;  
+          background: white;  
+        }
+
+        #FormDiv {
+            text-align: center;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+            border: white solid  3px;
+            border-radius: 10px;
+            
+            width: 400px;
+            min-height: 100px;
+            height: auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            
+            padding: 5px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            /* gap: 10px; */
         }
 
         .container {
@@ -24,14 +64,48 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Poll</h1>
+    <h1>Basic Information.</h1>
 
-    <div class="container">
+    <div class="container" id="FormDiv">
+        <h2>Form Below: </h2>
 
+        
+        <form method="POST" class="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <!-- <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div>
+                <label for="BirthDay">BirthDay: </label>
+                <input type="text" id="BirthDay" name="BirthDay">
+            </div>
+
+            <div>
+                <label for="age">Age: </label>
+                <input type="text" id="age" name="age">
+            </div>
+
+            <div>
+                <label for="email">Email: </label>
+                <input type="text" id="email" name="email">
+            </div>
+            
+            <div>
+                <label for="gender">Gender: </label>
+                <input type="text" id="gender" name="gender">
+            </div> -->
+
+            <button>Next</button>
+        </form>
     </div>
 </body>
 </html>

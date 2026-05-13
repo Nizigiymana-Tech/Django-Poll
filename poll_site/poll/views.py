@@ -1,6 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, HttpResponse
+from .forms import PersonalInfoForm
 
-# Create your views here.
 def poll(request):
-    return render(request, "homepage.html")
+    if request.method == "POST":
+        form = PersonalInfoForm(request.POST)
+
+        if form.is_valid():
+            obj = form.save()
+            return HttpResponse(f"Created Object with Name: {obj.name}")
+
+    else:
+        form = PersonalInfoForm()
+
+    return render(request, "homepage.html", {"form": form})
