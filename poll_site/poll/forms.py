@@ -1,5 +1,5 @@
 from django import forms
-from .models import PersonalInfo
+from .models import Voter
 
 class PersonalInfoForm(forms.ModelForm):
     birthdate = forms.DateField(
@@ -7,5 +7,5 @@ class PersonalInfoForm(forms.ModelForm):
     )
     
     class Meta:
-        model = PersonalInfo
+        model = Voter
         fields = "__all__"

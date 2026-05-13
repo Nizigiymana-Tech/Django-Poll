@@ -1,7 +1,19 @@
 from django.db import models
 
 # Create your models here.
-class PersonalInfo(models.Model):
+class Poll(models.Model):
+    title = models.CharField(max_length=1000)
+
+class Question(models.Model):
+    poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
+    text = models.CharField(max_length=300)
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+class Voter(models.Model):
     GENDER_CHOICES = [
         ("M", "Male"),
         ("F", "Female"),
@@ -13,6 +25,4 @@ class PersonalInfo(models.Model):
     age = models.IntegerField()
     email = models.EmailField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True, null=True)
-
-    def __str__(self) -> str:
-        return self.name
+    birthdate = models.DateField(null=True, blank=True)
