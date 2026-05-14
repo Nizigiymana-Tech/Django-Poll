@@ -4,14 +4,23 @@ from django.db import models
 class Poll(models.Model):
     title = models.CharField(max_length=1000)
 
+    def __str__(self):
+        return self.name
+
 class Question(models.Model):
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
     text = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.name
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
 
 class Voter(models.Model):
     GENDER_CHOICES = [
