@@ -5,7 +5,7 @@ from .models import Voter, Poll, Question, Choice
 @admin.register(Voter)
 class VoterModel(admin.ModelAdmin):
     fields = ['name', 'age', 'email', 'gender', 'birthdate']
-    list_display = ['name', 'age', 'email', 'gender']
+    list_display = ['name', 'age', 'email', 'gender', 'birthdate']
     search_fields = ['name', 'email']
     list_filter = ['gender']
 
