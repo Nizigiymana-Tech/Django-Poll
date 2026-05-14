@@ -26,3 +26,6 @@ class Voter(models.Model):
     email = models.EmailField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True, null=True)
     birthdate = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
