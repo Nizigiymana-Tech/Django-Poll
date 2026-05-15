@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient(to right, black, rgb(52, 51, 51));
+    overflow: hidden;
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input {
+    background-color: black;
+    border: white solid 2px;
+    color: white;
+}
+
+button {
+    align-self: center;
+    width: 100px;
+    background-color: black;
+    border: white solid 2px;
+    border-radius: 5px;
+    color: white;
+}
+
+#PollBox {
+    background: white;  
+}
+
+#FormDiv {
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    border: white solid  3px;
+    border-radius: 10px;
+    
+    width: 400px;
+    min-height: 100px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    padding: 5px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 20px;
+}
