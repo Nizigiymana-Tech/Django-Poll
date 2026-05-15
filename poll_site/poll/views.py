@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse  # noqa: F401
 from .forms import PersonalInfoForm
 
 def poll(request):
@@ -7,8 +7,7 @@ def poll(request):
 
         if form.is_valid():
             obj = form.save()
-            return HttpResponse(f"Created Object with Name: {obj.name}")
-
+            return render(request, "survey.html", {"obj": obj})
     else:
         form = PersonalInfoForm()
 

@@ -1,18 +1,16 @@
 from django.db import models
 
-# Create your models here.
-class Poll(models.Model):
-    title = models.CharField(max_length=1000)
-
-    def __str__(self):
-        return self.name
-
 class Question(models.Model):
-    poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
+    TYPE_CHOICES = [
+        ("MC", "Multiple Choice"),
+        ("TXT", "Text Answer"),
+    ]
+
     text = models.CharField(max_length=300)
+    question_type = models.CharField(max_length=3, choices=TYPE_CHOICES)
 
     def __str__(self):
-        return self.name
+        return self.text
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -20,9 +18,9 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.text
 
-class Voter(models.Model):
+class Respondent(models.Model):
     GENDER_CHOICES = [
         ("M", "Male"),
         ("F", "Female"),
