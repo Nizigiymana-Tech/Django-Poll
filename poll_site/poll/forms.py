@@ -1,7 +1,6 @@
 from django import forms
 from .models import Respondent, Choice
 
-
 class AnswerForm(forms.Form):
     def __init__(self, *args, **kwargs):
         question = kwargs.pop("question")
@@ -26,3 +25,5 @@ class PersonalInfoForm(forms.ModelForm):
     class Meta:
         model = Respondent
         fields = "__all__"
+
+        
