@@ -12,14 +12,14 @@
     <h1>Basic Information.</h1>
     
     <div id="CompletionBar">
-        <p>1x</p>
+        <div id="Bar"></div>
     </div>
 
     <div class="container" id="FormDiv">
         <h2>Form Below: </h2>
 
         
-        <form method="POST" class="form">
+        <form method="POST" class="form" id="form">
             {% csrf_token %}
             {{ form.as_p }}
 
@@ -51,5 +51,7 @@
             <button>Next</button>
         </form>
     </div>
+
+    <script src="{% static 'js/homepage.js' %}"></script>
 </body>
 </html>

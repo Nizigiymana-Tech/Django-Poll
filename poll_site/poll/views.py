@@ -1,10 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import PersonalInfoForm
-from .models import Respondent
+from .forms import PersonalInfoForm, AnswerForm
+from .models import Respondent, Question
 
 def post_detail(request, pk):
     obj = get_object_or_404(Respondent, pk=pk)
-    return render(request, "survey.html", {"obj": obj})
+    questions = Question.objects.all()
+    forms = []
+
+    for question in questions:
+        forms.append({
+            "question": question,
+            "form": AnswerForm(question=question)
+        })
+    
+    return render(request, "survey.html", {
+        "obj": obj,
+        "forms": forms
+    })
 
 def poll(request):
     if request.method == "POST":

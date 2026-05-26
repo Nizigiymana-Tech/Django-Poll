@@ -49,6 +49,31 @@ button {
     padding: 5px;
 }
 
+#CompletionBar {
+    color: white;
+    border: white solid 3px;
+    border-radius: 10px;
+
+    width: 250px;
+    height: 30px;
+
+    background-color: transparent;
+
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    overflow: hidden;
+}
+
+#Bar {
+    background: linear-gradient(to right, green, rgb(0, 85, 0));
+
+    width: 0%;
+    height: 100%;
+}
+
 .form {
     display: flex;
     flex-direction: column;

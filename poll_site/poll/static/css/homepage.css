@@ -54,9 +54,25 @@ button {
     border: white solid 3px;
     border-radius: 10px;
 
-    width: 200;
-    min-height: 50px;
-    height: auto;
+    width: 250px;
+    height: 30px;
+
+    background-color: transparent;
+
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    overflow: hidden;
+}
+
+#Bar {
+    background: linear-gradient(to right, green, rgb(0, 85, 0));
+
+    width: 0%;
+    height: 100%;
+    transition: width 0.4s ease-out;
 }
 
 .form {

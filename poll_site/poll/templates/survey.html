@@ -9,5 +9,17 @@
     <link rel="stylesheet" type="text/static" href="{% static 'css/survey.css' %}">
 </head>
 <body>
-    <h1>Hello</h1>
+    {% csrf_token %}
+
+    {% for item in forms %}
+        <div>
+            <label>{{ item.question.text }}</label>
+
+            {{ item.form.answer }}
+        </div>
+
+        <br>
+    {% endfor %}
+
+    <button type="submit">Submit Answers</button>
 </body>

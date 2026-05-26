@@ -28,7 +28,7 @@ class Respondent(models.Model):
         ("P", "Prefer not to say")
     ]
 
-    name = models.CharField(max_length=1000)
+    name = models.CharField(max_length=30)
     age = models.IntegerField()
     email = models.EmailField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True, null=True)
