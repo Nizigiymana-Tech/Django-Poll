@@ -1,13 +1,12 @@
 from django.db import models
 
 class Question(models.Model):
-    TYPE_CHOICES = [
-        ("MC", "Multiple Choice"),
+    TYPE_CHOICES = (("MC", "Multiple Choice"),
         ("TXT", "Text Answer"),
-    ]
+    )
 
     text = models.CharField(max_length=300)
-    question_type = models.CharField(max_length=3, choices=TYPE_CHOICES)
+    question_type = models.CharField(max_length=3, choices=TYPE_CHOICES, null=True)
 
     def __str__(self):
         return self.text
