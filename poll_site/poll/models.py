@@ -1,8 +1,10 @@
 from django.db import models
 
 class Question(models.Model):
-    TYPE_CHOICES = (("MC", "Multiple Choice"),
+    TYPE_CHOICES = (
+        ("MC", "Multiple Choice"),
         ("TXT", "Text Answer"),
+        ("NC", "Number Choice"),
     )
 
     text = models.CharField(max_length=300)
