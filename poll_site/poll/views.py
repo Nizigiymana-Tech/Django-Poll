@@ -13,7 +13,7 @@ def post_detail(request, pk):
             "question": question,
             "form": AnswerForm(question=question)
         })
-    
+
     return render(request, "survey.html", {
         "obj": obj,
         "forms": forms
@@ -21,25 +21,26 @@ def post_detail(request, pk):
 
 def poll(request):
     if request.method == "POST":
-        obj = request.POST.get("pollData")
+        respondent_id = request.POST.get("pollData")
 
-        if obj:
-            for question in Question:
-                answer = request.POSt.get(f"question_{question.id}")
-
+        if respondent_id:
+            respondent = get_object_or_404(Respondent, pk=respondent_id)
+            for question in Question.objects.all():
+                answer = request.POST.get(f"question_{question.id}")
                 if question.question_type == "MC":
                     Answer.objects.create(
-                        respondent=obj,
+                        respondent=respondent,
                         question=question,
                         choice_id=answer
                     )
+
                 else:
                     Answer.objects.create(
-                        respondent=obj,
+                        respondent=respondent,
                         question=question,
-                        text_aswers=answer
+                        text_answers=answer
                     )
-                
+
             return HttpResponse("Finished")
         else:
             form = PersonalInfoForm(request.POST)
@@ -47,6 +48,7 @@ def poll(request):
             if form.is_valid():
                 obj = form.save()
                 return redirect("poll_detail", pk=obj.pk)
+
     else:
         form = PersonalInfoForm()
 
