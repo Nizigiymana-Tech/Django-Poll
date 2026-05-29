@@ -9,20 +9,23 @@
     <link rel="stylesheet" href="{% static 'css/survey.css' %}">
 </head>
 <body>
-    {% csrf_token %}
+    <form method="POST">
+        {% csrf_token %}
 
-    <div id="form" class="container">
-        {% for item in forms %}
-        <div>
-            <h3>{{ item.question.text }}</h3>
+        <div id="form" class="container">
+            {% for item in forms %}
+            <div>
+                <h3>{{ item.question.text }}</h3>
 
-            {{ item.form.answer }}
-        </div>
+                {{ item.form.answer }}
+            </div>
 
-        <br>
-    {% endfor %}
+            <br>
+        {% endfor %}
+
+        <button type="submit" name="action" value="pollData">Submit Answers</button>
+    </form>
+
+
     </div>
- 
-
-    <button type="submit">Submit Answers</button>
-</body>
+ </body>

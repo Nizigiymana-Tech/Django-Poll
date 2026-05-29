@@ -19,7 +19,7 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.text
+        return f"{self.text}"
 
 class Respondent(models.Model):
     GENDER_CHOICES = [
@@ -37,3 +37,14 @@ class Respondent(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Answer(models.Model):
+    respondent = models.ForeignKey(Respondent, on_delete=models.CASCADE, related_name="answers")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    choice = models.ForeignKey(Choice, on_delete=models.SET_NULL, null=True, blank=True)
+
+    text_answers = models.TextField()
+
+    def __str__(self):
+        return f"{self.respondent.id} Answers"

@@ -8,16 +8,36 @@
     border-radius: 10px;
     
     width: 400px;
-    min-height: 100px;
-    height: auto;
+    height: 430px;
 
     overflow: auto;
-
+    
     display: flex;
     flex-direction: column;
-    gap: 10px;
     
     padding: 5px;
+}
+
+button {
+    align-self: center;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    color: white;
+    background-color: black;
+
+    border: white solid 2px;
+    border-radius: 5px;
+
+    width: 150px;
+    transition:
+        transform 0.15s ease-out,
+        color 0.15s;
+}
+
+button:hover {
+    color: yellow;
+    transform: scale(115%);
 }
 
 input {

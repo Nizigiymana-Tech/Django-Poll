@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Respondent, Question, Choice
+from .models import Respondent, Question, Choice, Answer
 
 # Register your models here.
 @admin.register(Respondent)
@@ -12,3 +12,4 @@ class RespondentsModel(admin.ModelAdmin):
 
 admin.site.register(Question)
 admin.site.register(Choice)
+admin.site.register(Answer)
