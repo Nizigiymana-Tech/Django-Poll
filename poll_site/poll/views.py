@@ -20,18 +20,25 @@ def post_detail(request, pk):
     })
 
 def poll(request):
+    print("OK")
+
     if request.method == "POST":
+        print("OK")
         respondent_id = request.POST.get("pollData")
+
+        print(respondent_id)
 
         if respondent_id:
             respondent = get_object_or_404(Respondent, pk=respondent_id)
+
             for question in Question.objects.all():
                 answer = request.POST.get(f"question_{question.id}")
+
                 if question.question_type == "MC":
                     Answer.objects.create(
                         respondent=respondent,
                         question=question,
-                        choice_id=answer
+                        choice=answer
                     )
 
                 else:
